@@ -22,7 +22,7 @@
             <nav class="my-2 my-md-0 mr-md-3">
                 <a class="p-2 text-dark" href="#">ヘルプ</a>
                 <a class="p-2 text-dark" href="#">サイトマップ</a>
-                <a class="p-2 text-dark" href="#">採用情報</a>
+                <a class="p-2 text-dark" href="#recruit">採用情報</a>
             </nav>
             <a class="btn btn-outline-primary" href="#">お問い合わせ</a>
         </div>
@@ -481,8 +481,28 @@
             </div>
         </div>
     </footer>
+    <button type="button" class="btn btn-primary" id="backbtn">トップに戻る <span class="badge badge-light"><i class="fa fa-arrow-up"></i></span></button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+  $(function() {
+    var topBtn = $('#backbtn');
+    topBtn.hide();
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 500) {
+        topBtn.fadeIn();
+      } else {
+        topBtn.fadeOut();
+      }
+    });
+    topBtn.click(function () {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 500);
+      return false;
+    });
+  });
+</script>
 </body>
 
 </html>
